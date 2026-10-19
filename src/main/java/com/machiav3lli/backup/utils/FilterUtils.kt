@@ -106,7 +106,7 @@ fun Collection<Package>.applySearch(
                 )
             )
                 .any { it.contains(query, ignoreCase = true) }
-            )
+            ) || item.backupList.any { it.note.contains(query, ignoreCase = true) }
 }
 
 fun Collection<Package>.applyFilter(
