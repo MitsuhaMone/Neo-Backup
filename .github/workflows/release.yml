@@ -68,11 +68,12 @@ jobs:
           body: |
             ## Neo Backup (fork) — Search in Backup Notes
 
-            This fork adds **backup note search** to the app's search feature.
+            This fork extends the app's search feature to cover **backup notes**, so you can quickly find and restore a specific backup among dozens.
 
             ### What's new
-            - The search bar now also searches through the **notes of backups** (per-backup notes).
-            - Example: you have a backup with the note `ABC` — typing `ABC` in the search now shows the app that owns that backup.
+            - The main search bar also matches the **note of each backup** (per-backup notes), not just app name/label.
+            - **App page**: when opened while a note search is active, the backups list only shows the backups whose note matches the search (e.g. searching `ABC` and opening the app shows only the backups noted `ABC`). If no backup note matches, all backups are shown as usual.
+            - **Restore page**: in the batch restore list, each app's backup list is filtered the same way, so you can directly pick the matching backup to restore.
             - Search still matches package name, app label, app-level note and tags, as before.
 
             ### Install notes
@@ -80,4 +81,4 @@ jobs:
             - Requires Android 8.0+ (API 26+).
             - Root or Shizuku is required for backup/restore operations, same as the official app.
 
-            Built from upstream [NeoApplications/Neo-Backup](https://github.com/NeoApplications/Neo-Backup) with a minimal patch to `FilterUtils.applySearch`.
+            Built from upstream [NeoApplications/Neo-Backup](https://github.com/NeoApplications/Neo-Backup) with a minimal patch to the search in `FilterUtils`, `AppPage` and the restore list.
